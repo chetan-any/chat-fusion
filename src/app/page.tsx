@@ -1,7 +1,12 @@
-export default function HomePage() {
-  return (
-    <>
-      <h1>Chat Fusion</h1>
-    </>
-  );
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+
+export default async function HomePage() {
+  const session = await auth();
+
+  if (session?.user) {
+    redirect(`/dashboard`);
+  }
+
+  redirect("/login");
 }
