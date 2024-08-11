@@ -8,7 +8,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: UpstashRedisAdapter(db),
 
     pages: {
-        signIn: "/login"
+        signIn: "/login",
+        signOut: "/dashboard"
     },
 
     providers: [Google, GitHub]
