@@ -14,6 +14,8 @@ export default async function DashboardPage() {
     <>
       <h1>Dashboard Page</h1>
 
+      <pre>{JSON.stringify(session)}</pre>
+
       <p>Hello {session?.user?.name}</p>
 
       <form action={logOut}>
