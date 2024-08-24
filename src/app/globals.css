@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bg-hover {
+    @apply rounded-md p-2 hover:bg-slate-200 dark:hover:bg-gray-700/50;
+  }
+}

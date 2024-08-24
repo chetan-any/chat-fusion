@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: `Login`,
 };
 
-export default async function () {
+export default async function LoginPage() {
   const session = await auth();
   if (session?.user) {
     redirect(`/dashboard`);

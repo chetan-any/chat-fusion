@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { IoMdMoon } from "react-icons/io";
 import { MdSunny } from "react-icons/md";
 import ThemeButton from "@components/ThemeButton";
+import { Spinner } from "@nextui-org/spinner";
 
 const iconSize = 18;
 
@@ -34,4 +35,10 @@ export default function ThemeSwitcher() {
       </>
     );
   }
+
+  return (
+    <ThemeButton>
+      <Spinner color={`danger`} size={`sm`} />
+    </ThemeButton>
+  );
 }

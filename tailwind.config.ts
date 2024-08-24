@@ -2,23 +2,16 @@ import { nextui } from '@nextui-org/theme';
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ['class'],
-
+  darkMode: ['class'], //Now next-themes will put `class = "dark"` attribute in HTML element
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|input|spinner|ripple).js"
+    "./node_modules/@nextui-org/theme/dist/components/(badge|button|chip|input|spinner|ripple).js"
   ],
 
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
 
   plugins: [nextui()],

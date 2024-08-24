@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from "react";
 
 interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
   className?: string;
 }
 

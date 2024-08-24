@@ -16,7 +16,7 @@ export default function LogInForm() {
           height={70}
           width={70}
           alt={`Chat App Logo`}
-          className={`absolute top-32 sm:top-44`}
+          className={`absolute top-32 rounded-md sm:top-44`}
           placeholder={`blur`}
           priority
         />

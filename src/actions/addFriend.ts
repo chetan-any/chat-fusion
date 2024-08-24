@@ -51,7 +51,7 @@ export const addFriend = async (clientFormEmail: string) => {
             }
 
             else {
-                throw new Error(`${email} doesn't exists in the database.`);
+                throw new Error(`No user found. Please use another ID.`)
             }
         }
 

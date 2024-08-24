@@ -38,6 +38,7 @@ export default function AddFriendForm() {
   const {
     register,
     handleSubmit,
+    getFieldState,
     formState: { errors, isSubmitting },
   } = useForm<TEmailSchema>({
     resolver: zodResolver(emailSchema),
@@ -85,13 +86,13 @@ export default function AddFriendForm() {
       </div>
 
       <Button
-        disabled={isSubmitting}
+        disabled={getFieldState(`email`).invalid || isSubmitting}
         type={`submit`}
         variant={`shadow`}
         radius={`sm`}
         color={`primary`}
         fullWidth
-        className={`font-semibold ${isSubmitting && "bg-gray-600"}`}
+        className={`font-semibold ${(isSubmitting && `bg-gray-600`) || (getFieldState("email").invalid && "bg-gray-600")}`}
       >
         {isSubmitting ? `Sending Request...` : ` Add Friend`}
       </Button>

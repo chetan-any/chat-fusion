@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/Providers";
 import ThemeSwitcher from "@ui/ThemeSwitcher";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={`en`} suppressHydrationWarning>
-      <body className={`${inter.className} relative min-h-screen px-2 py-2`}>
+      <body className={`${inter.className} min-h-screen px-2`}>
         <Providers>
+          <Toaster
+            position={`top-center`}
+            richColors
+            duration={5000}
+            theme={`system`}
+            className={`text-pretty`}
+          />
           {children}
 
           <div className={`fixed bottom-5 right-5`}>
