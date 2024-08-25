@@ -6,7 +6,9 @@ import { emailSchema } from "@utils/form/types";
 import { ZodError } from "zod";
 import { redirect } from "next/navigation";
 
-export const addFriend = async (clientFormEmail: string) => {
+
+/**Adds incoming friend requests to the redis database at `user:${currentUserID}:incoming_friend_requests` */
+export const addIncomingFriendRequests = async (clientFormEmail: string) => {
     const session = await auth()
 
     const { email } = emailSchema.parse({ email: clientFormEmail })

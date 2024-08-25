@@ -10,4 +10,12 @@ export const emailSchema = z.object({
         .email(`Invalid email format`)
 });
 
+
+export const IDSchema = z.object({
+    id: z
+        .string({ required_error: `ID is required !` })
+        .trim()
+        .min(1, { message: `ID is required` })
+})
+
 export type TEmailSchema = z.infer<typeof emailSchema>;

@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { emailSchema, TEmailSchema } from "@utils/form/types";
 import cn from "@utils/cn";
 import { FaUser } from "react-icons/fa";
-import { addFriend } from "@actions/addFriend";
+import { addIncomingFriendRequests } from "@actions/addIncomingFriendRequests";
 import { useState } from "react";
 
 type StatusMessageProps = {
@@ -45,7 +45,7 @@ export default function AddFriendForm() {
   });
 
   const onSubmit = async (data: TEmailSchema) => {
-    const requestStatus = await addFriend(data.email);
+    const requestStatus = await addIncomingFriendRequests(data.email);
 
     setOperationMessage(requestStatus as string);
   };

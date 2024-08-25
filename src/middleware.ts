@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth"
+import { type NextRequest, NextResponse } from "next/server";
+import { auth } from "@lib/auth"
 
 const LOGIN = `/login` as const
 const ROOT = '/' as const
 
 const PUBLIC_ROUTES = [
     '/login',
-    'api/auth/:path*'
+    '/api/auth/:path*'
 ] as const
 
 export const middleware = async (request: NextRequest) => {

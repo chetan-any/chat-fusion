@@ -28,7 +28,7 @@ export default async function DashboardLayout({
             <Image
               src={App_Logo}
               alt={`Chat Fusion App Logo`}
-              className={`size-10 rounded-md`}
+              className={`size-10 select-none rounded-md`}
             />
           </Link>
 
@@ -58,7 +58,7 @@ export default async function DashboardLayout({
               height={45}
               quality={90}
               loading={`lazy`}
-              className={`size-11 shrink-0 rounded-full`}
+              className={`size-11 shrink-0 select-none rounded-full`}
             />
 
             <span className="sr-only">Your Profile</span>

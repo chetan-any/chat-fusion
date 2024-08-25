@@ -1,8 +1,3 @@
-interface ChildrenType {
-    children: React.ReactNode
-    className?: string
-}
-
 interface SidebarOption {
     id: number;
     name: string;
