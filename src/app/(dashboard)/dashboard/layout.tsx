@@ -1,10 +1,11 @@
-import { auth } from "@lib/auth";
 import Image from "next/image";
 import App_Logo from "public/App_Logo.png";
 import LogOutButton from "@components/dashboard-layout/LogOutButton";
 import SidebarOptions from "@components/dashboard-layout/SidebarOptions";
 import Link from "next/link";
 import sidebarOptionsData from "@utils/dashboard-layout/sidebarOptionsData";
+import SidebarChatList from "@ui/SidebarChatList";
+import getFriendsAndCurrentUser from "@utils/getFriendsAndCurrentUser";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -13,14 +14,14 @@ interface DashboardLayoutProps {
 export default async function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
-  const session = await auth();
-
   const sidebarOptions = await sidebarOptionsData();
 
+  const { currentUser, friends } = await getFriendsAndCurrentUser();
+
   return (
-    <div className={`flex gap-x-4`}>
+    <div className={`flex pl-2`}>
       <aside
-        className={`sticky left-0 top-0 flex h-screen w-80 shrink-0 flex-col justify-between border-r py-4 pr-2 dark:border-slate-400`}
+        className={`sticky left-0 top-0 flex h-screen w-[330px] shrink-0 flex-col justify-between border-r py-4 pr-2 dark:border-slate-400`}
       >
         <section className={`space-y-8`}>
           {/* App Logo */}
@@ -32,13 +33,17 @@ export default async function DashboardLayout({
             />
           </Link>
 
-          <ul role={`list`} className={`space-y-4 *:text-sm`}>
-            <li>
-              <p>Your chats</p>
-              <div className={`ml-3`}>
-                <p>Some UI elements</p>
-              </div>
-            </li>
+          <ul role={`list`} className={`space-y-6 *:text-sm`}>
+            {friends.length > 0 && (
+              <li className={`space-y-3`}>
+                <p>Your chats</p>
+
+                <SidebarChatList
+                  currentUserID={currentUser?.id as string}
+                  friends={friends}
+                />
+              </li>
+            )}
 
             <li className={`space-y-4`}>
               <p>Overview</p>
@@ -51,7 +56,7 @@ export default async function DashboardLayout({
         <section className={`bottom-0 flex items-center justify-between`}>
           <div className={`flex gap-x-2`}>
             <Image
-              src={(session?.user?.image as string) || ``}
+              src={(currentUser?.image as string) || ``}
               referrerPolicy={`no-referrer`}
               alt={`User Profile Picture`}
               width={45}
@@ -63,9 +68,9 @@ export default async function DashboardLayout({
 
             <span className="sr-only">Your Profile</span>
             <div className={`-space-y-0`} aria-hidden>
-              <h1 className={`font-semibold`}>{session?.user?.name}</h1>
+              <h1 className={`font-semibold`}>{currentUser?.name}</h1>
               <h2 className={`text-xs text-slate-500 dark:text-slate-300`}>
-                {session?.user?.email}
+                {currentUser?.email}
               </h2>
             </div>
           </div>

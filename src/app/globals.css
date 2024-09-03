@@ -6,4 +6,33 @@
   .bg-hover {
     @apply rounded-md p-2 hover:bg-slate-200 dark:hover:bg-gray-700/50;
   }
+
+  .input-focus {
+    @apply w-[30ch] ring-blue-600 ring-offset-1 ring-offset-white focus-within:ring-2 dark:ring-offset-black;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .scrollbar-track::-webkit-scrollbar-track {
+    background-color: hsl(60, 0%, 39%);
+    border-radius: 0.5rem;
+  }
+
+  .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: hsl(105, 29%, 97%);
+    border-radius: 0.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .scrollbar-track::-webkit-scrollbar-track {
+      background-color: hsl(105, 29%, 97%);
+    }
+
+    .scrollbar-thumb::-webkit-scrollbar-thumb {
+      background-color: hsl(60, 0%, 39%);
+    }
+  }
 }

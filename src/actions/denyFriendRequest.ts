@@ -1,10 +1,10 @@
 'use server'
 
 import db from "@lib/db"
-import { IDSchema } from "@/utils/form/types"
 import { auth } from "@lib/auth"
 import { redirect } from "next/navigation"
 import { ZodError } from "zod"
+import { IDSchema } from "@utils/validations/chatValidations"
 
 export const denyFriendRequest = async (senderID: string, senderName: string) => {
     const { id } = IDSchema.parse({ id: senderID })

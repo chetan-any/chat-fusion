@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AddFriendPage() {
   return (
-    <MainContainer className={`flex min-h-[200vh]`}>
+    <MainContainer className={`flex px-3`}>
       <div className={`space-y-16`}>
         <h1 className={`text-2xl font-extrabold sm:text-3xl md:text-4xl`}>
           Add Friend Page

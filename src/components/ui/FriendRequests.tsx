@@ -34,7 +34,9 @@ export default function FriendRequests({
   return (
     <>
       {incomingFriendRequests.length === 0 ? (
-        <p>Nothing to show</p>
+        <p className={`text-2xl font-semibold text-rose-500`}>
+          No incoming friend requests
+        </p>
       ) : (
         <ul className={`space-y-8`}>
           {friendRequests.map((request) => {

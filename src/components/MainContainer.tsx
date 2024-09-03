@@ -6,5 +6,5 @@ export default function MainContainer({
   children,
   className,
 }: MainContainerProps) {
-  return <main className={cn(`py-3`, className)}>{children}</main>;
+  return <main className={cn(`py-4`, className)}>{children}</main>;
 }

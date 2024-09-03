@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={`en`} suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen px-2`}>
+      <body className={`${inter.className} min-h-screen`}>
         <Providers>
           <Toaster
             position={`top-center`}
@@ -31,7 +31,7 @@ export default function RootLayout({
           />
           {children}
 
-          <div className={`fixed bottom-5 right-5`}>
+          <div className={`fixed right-5 top-5`}>
             <ThemeSwitcher />
           </div>
         </Providers>

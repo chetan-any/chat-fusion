@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { emailSchema, TEmailSchema } from "@utils/form/types";
+import { emailSchema, TEmailSchema } from "@utils/validations/formValidations";
 import cn from "@utils/cn";
 import { FaUser } from "react-icons/fa";
 import { addIncomingFriendRequests } from "@actions/addIncomingFriendRequests";
@@ -65,10 +65,7 @@ export default function AddFriendForm() {
           startContent={<FaUser size={16} />}
           radius={`sm`}
           classNames={{
-            inputWrapper: cn(
-              `focus-within:ring-2 ring-offset-2 ring-offest-white dark:ring-offset-black ring-blue-600 w-[30ch]`,
-            ),
-            input: cn(`placeholder:select-none`),
+            inputWrapper: cn(`input-focus`),
           }}
         />
 

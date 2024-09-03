@@ -2,12 +2,12 @@
 
 import db from "@lib/db";
 import { auth } from "@lib/auth";
-import { emailSchema } from "@utils/form/types";
+import { emailSchema } from "@utils/validations/formValidations";
 import { ZodError } from "zod";
 import { redirect } from "next/navigation";
 
 
-/**Adds incoming friend requests to the redis database at `user:${currentUserID}:incoming_friend_requests` */
+/**Adds incoming friend requests to the redis database at `user:${currentUserID}:incoming_friend_requests` set */
 export const addIncomingFriendRequests = async (clientFormEmail: string) => {
     const session = await auth()
 
