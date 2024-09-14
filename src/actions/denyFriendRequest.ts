@@ -7,7 +7,7 @@ import { ZodError } from "zod"
 import { idSchema } from "@utils/validations/chatValidations"
 
 export const denyFriendRequest = async (senderID: string, senderName: string) => {
-    const { id } = IDSchema.parse({ id: senderID })
+    const { id } = idSchema.parse({ id: senderID })
 
     const session = await auth()
 
